@@ -1,0 +1,29 @@
+/* navbar.css */
+
+.navbar-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-item {
+    text-decoration: none;
+    color: #71ed44;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar-item:hover {
+    background-color: rgba(68, 237, 231, 0.2);
+    color: #fff;
+  }
+  

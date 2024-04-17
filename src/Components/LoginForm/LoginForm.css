@@ -1,0 +1,149 @@
+.wrapper{
+    width: 420px;
+    background:transparent;
+    border:2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color:#fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    
+}
+.login{
+    background: url('../Assets/sportswoman.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family:'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url('./Components/Assets/sportswoman.jpg') no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
+.signup{
+    background: url('../Assets/sportswoman.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family:'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url('./Components/Assets/sportswoman.jpg') no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width:100%;
+    height:50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline:none;
+    border:2px solid rgba(255, 255, 255, .2);
+    border-radius:40px;
+    font-size:16px;
+    color:#fff;
+    padding:20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color:#fff;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    font: size 16px;;
+}
+
+.wrapper .remember-forget {
+    display:flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: 15px 0 15px;
+}
+
+.remember-forget label input {
+    accent-color: #fff;
+    margin-right:4px;
+
+}
+.remember-forget a {
+    color:#fff;
+    text-decoration: none;
+}
+
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+
+.wrapper button{
+    width: 100%;
+    height:45px;
+    background:#fff;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    box-shadow: 0 0 10px rgba(0,0,0,-1);
+    cursor: pointer;
+    font-size: 16px;
+    color:#333;
+    font-weight:700;
+}
+
+.wrapper .Register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+
+.Register-link p a {
+    color:#fff;
+    text-decoration: none;
+    font: weight 600px;
+}
+
+.Register-link p a:hover {
+    text-decoration: underline;
+
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Apply the animation to the element with the shake-animation class */
+
+.loginerror{
+    color:red;
+    margin-left: 60px;
+    font-weight: 700;
+    animation: shake 0.5s ease;
+}
+  
