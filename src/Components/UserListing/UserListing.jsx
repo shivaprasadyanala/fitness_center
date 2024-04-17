@@ -33,7 +33,7 @@ const UserListing = ({ latitude, longitude }) => {
  const [centersPerPage] = useState(5); // Display only 5 centers per page
  const [clickedIndex, setClickedIndex] = useState(); // State to show/hide services
  const servicedata = data.services
-
+ const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15]
  const getRandomValues = () => {
   const randomValues = [];
   while (randomValues.length < 10) {
@@ -158,11 +158,10 @@ const UserListing = ({ latitude, longitude }) => {
    <ul className="centerList">
     {currentCenters.map((center, index) => (
      <li key={index} className="centerItem">
-      <img src={image1} alt={center.name} className="centerImage" />
+      <img src={images[Math.floor(Math.random() * 15)]} alt={center.name} className="centerImage" />
       <div className="centerInfo">
        <strong>{center.name}</strong>
        <p>Address: {center.address}</p>
-       <p>Contact: {center.contact}</p>
        <div className="servicesButtonContainer">
         <button className="servicesButton" onClick={() => setClickedIndex(index)}>
          show services
