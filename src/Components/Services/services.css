@@ -1,0 +1,29 @@
+.serviceslist{
+ display: flex;
+ flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+  max-width: 600px;
+  margin: auto;
+}
+.item {
+  width: calc(33.33% - 10px); /* Adjust width and margin as needed */
+  margin-bottom: 20px; /* Adjust margin as needed */
+  background-color: #f0f0f0; /* Just for visualization */
+  border: 1px solid #ccc; /* Just for visualization */
+  box-sizing: border-box; /* Include border in width calculation */
+  text-align: center; /* Center content horizontally */
+  padding: 10px; /* Adjust padding as needed */
+  list-style-type: none;
+}
+.serviceswrapper{
+ /* display: flex; */
+ /* justify-content: center;
+ align-items: center; */
+ text-align: center;
+ border-radius: 15px;
+ border:2px solid #000;
+ padding:auto;
+}
+.serviceswrapper h1{
+ margin: 10px;
+}

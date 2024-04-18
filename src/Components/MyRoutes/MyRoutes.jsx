@@ -6,6 +6,7 @@ import Signup from '../SignupForm/Signup'
 import UserListing from '../UserListing/UserListing'
 import GetLocation from '../GetLocation/GetLocation'
 import Cart from '../Cart/Cart'
+import Services from '../Services/Services'
 const MyRoutes = () => {
  const [isLoggedIn, setIsLoggedIn] = useState(false)
  const handleLogin = (status) => {
@@ -23,6 +24,7 @@ const MyRoutes = () => {
     <Route path='/userlist' element={<UserListing />} />
     <Route path='/getlocation' element={<GetLocation />} />
     <Route path='/cart' element={<Cart />} />
+    <Route path='/services' element={<Services />} />
    </Routes>
   </Router >
  )
