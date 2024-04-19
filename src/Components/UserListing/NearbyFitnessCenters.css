@@ -1,15 +1,39 @@
+body {
+  font-family: 'Roboto', sans-serif; /* Changed font to Roboto */
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+.logoContainer {
+  position: absolute;
+  top: 20px; /* Adjust the top position as needed */
+  left: 20px; /* Adjust the left position as needed */
+}
+
+.logo {
+  width: 100px; /* Adjust the width of the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
 .container {
   text-align: center;
+  font-size: large;
   padding: 20px;
   background-color: #f7f7f7;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Added transition for box-shadow */
 }
 
 .heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px; /* Increased font size */
+  text-align: center; 
   color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .list {
@@ -51,48 +75,6 @@
   border-radius: 6px;
   border: 1px solid #ccc;
 }
-.container {
-  text-align: center;
-  height:400vh;
-  padding: 20px;
-  background-image: url(''); 
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.heading {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.centerList {
-  list-style-type: none;
-  padding: 0;
-}
-
-.centerItem {
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.centerItem strong {
-  color: #007bff;
-}
-
-.centerItem p {
-  margin: 5px 0;
-}
-
-
-.heading {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
 .centerList {
   list-style-type: none;
@@ -114,12 +96,16 @@
   transform: scale(1.02);
 }
 
-.centerItem img{
+.centerItem img {
   border-radius: 10px;
 }
+
 .centerItem strong {
   color: #1a1d21;
   font-size: 20px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .centerItem p {
@@ -136,8 +122,6 @@
   font-weight: bold;
 }
 
-
-
 .radiusSelector {
   margin-bottom: 20px;
   margin-left: 50%;
@@ -146,7 +130,7 @@
 .radiusSelector label {
   font-size: 16px;
   margin-right: 10px;
-  color:#141313;
+  color: #141313;
 }
 
 .radiusSelector select {
@@ -175,63 +159,20 @@
   background-color: #0056b3;
 }
 
-.cart {
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  position: sticky;
-  bottom: 0px;
-  width: 20%;
-  height: 100px;
-}
-
-.cart h3 {
-  margin-bottom: 10px;
-}
-
-.cart ul {
-  padding: 0;
-}
-
-.cart li {
-  margin-bottom: 5px;
-}
-
-.cart li button {
-  margin-left: 10px;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.cart li button:hover {
-  background-color: #c82333;
-}
 .container {
   position: relative; /* Set container position to relative */
-  /* Add other container styles as needed */
 }
 
 .searchContainer {
-  /* position: absolute; 
-  top: 70px;
-  right: 300px;  */
   display: flex;
   align-items: center;
-  margin-left: 40%;
-  /* margin-top: 10%; */
+  justify-content: center; /* Changed alignment to center */
+  margin-bottom: 20px;
 }
 
 .searchInput {
   padding: 8px;
-  margin-right: 0px;
+  margin-right: 10px; /* Adjusted margin for spacing */
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
@@ -246,11 +187,13 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .searchButton:hover {
   background-color: #0056b3;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -263,25 +206,31 @@
   border: none;
   border-radius: 5px;
   background-color: #007bff;
-  /* background: transparent; */
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.pageButton:hover {
+  background-color: #0056b3;
+}
+
 .centerImage {
   width: 300px;
   height: 200px;
-  object-fit:cover;
-  border: radius 50%; ;
-  border-image: auto;
+  object-fit: cover;
+  border-radius: 10px; /* Fixed border radius typo */
 }
 
 .centerInfo {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
-/* Other styles remain unchanged */
 
-.serviceitem{
-  /* border: 1px solid red; */
+.serviceitem {
   border-radius: 10px;
   margin: 5px;
   padding: 5px;
@@ -289,58 +238,52 @@
   list-style: none;
 }
 
-.services{
+.services {
   display: flex;
   justify-content: center;
 }
-.servicesButton{
+
+.servicesButton {
   background-color: #3b4146;
   color: #fff;
+  align-items: center;
+  margin-top: 10px;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  
 }
-.servicesButtonContainer{
-  /* position: absolute; 
-  top: 70px; 
+
+.servicesButtonContainer {
   display: flex;
   align-items: center;
-  left: 300px; */
-  
-}
-.headerContainer{
-  /* position: sticky; */
-  /* top: 0; */
-  /* background-color: rgba(0, 0, 0, 0.2) */
+  margin-bottom: 10px; /* Added margin bottom for spacing */
 }
 
 .cartIconContainer {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  flex-grow: 1  ;
   align-items: center;
   text-decoration: none;
-  color: #f3a796;/* Change the color as needed */
+  color: hsla(76, 88%, 44%, 0.447);
   order: 1;
-  margin-left: auto ; 
+  margin-left: auto;
 }
 
 .cartIcon {
-  font-size: 40px; /* Adjust the icon size */
+  font-size: 40px;
 }
 
 .cartItemCount {
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: #007bff; /* Background color for the count */
-  color: #fff; /* Text color for the count */
-  border-radius: 50%; /* Make it round */
-  padding: 4px; /* Adjust padding as needed */
-  font-size: 12px; /* Adjust font size */
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
 }

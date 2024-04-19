@@ -113,7 +113,11 @@ const UserListing = ({ latitude, longitude }) => {
   };
 
   return (
+    
     <div className="container">
+      <div className="logoContainer">
+         <img src="" alt="Logo" className="logo" />
+      </div>
       <h2 className="heading">Nearby Fitness Centers</h2>
       <div className='headerContainer'>
         <div className="searchContainer">
