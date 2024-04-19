@@ -11,5 +11,11 @@
     { "name": "Physiotherapy", "price": 3432 },
     { "name": "Kickboxing", "price": 3432 },
     { "name": "CrossFit", "price": 3432 }
+  ],
+  "centers": [
+    { "name": "xyz", "Address": "hyd" },
+    { "name": "abc", "Address": "del" },
+    { "name": "abc", "Address": "del" },
+    { "name": "abc", "Address": "del" }
   ]
 }
