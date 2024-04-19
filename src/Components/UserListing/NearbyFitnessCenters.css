@@ -55,7 +55,7 @@
   text-align: center;
   height:400vh;
   padding: 20px;
-  background-image: url('../Assets/images/pexels-lukas.jpg'); 
+  background-image: url(''); 
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -100,6 +100,8 @@
 }
 
 .centerItem {
+  display: flex;
+  align-items: flex-start;
   margin: 20px 0;
   padding: 20px;
   border-radius: 8px;
@@ -144,7 +146,7 @@
 .radiusSelector label {
   font-size: 16px;
   margin-right: 10px;
-  color:#fff;
+  color:#141313;
 }
 
 .radiusSelector select {
@@ -315,7 +317,18 @@
   /* position: sticky; */
   /* top: 0; */
   /* background-color: rgba(0, 0, 0, 0.2) */
+}
 
+.cartIconContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1  ;
+  align-items: center;
+  text-decoration: none;
+  color: #f3a796;/* Change the color as needed */
+  order: 1;
+  margin-left: auto ; 
 }
 
 .loader {
@@ -336,4 +349,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+.cartIcon {
+  font-size: 40px; /* Adjust the icon size */
+}
+
+.cartItemCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #007bff; /* Background color for the count */
+  color: #fff; /* Text color for the count */
+  border-radius: 50%; /* Make it round */
+  padding: 4px; /* Adjust padding as needed */
+  font-size: 12px; /* Adjust font size */
 }

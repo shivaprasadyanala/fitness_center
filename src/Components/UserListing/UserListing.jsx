@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Services from '../Services/Services'
+import { Link } from "react-router-dom"; // Import Link for React Router
+import { FaShoppingCart } from 'react-icons/fa'; // Import cart icon
 import './NearbyFitnessCenters.css'; // Import the updated CSS file
-import image1 from '../Assets/images/image1.jpg'; // Import images for each fitness center
+// Import images for each fitness center
+import image1 from '../Assets/images/image1.jpg';
 import image2 from '../Assets/images/image2.jpg';
 import image3 from '../Assets/images/image3.jpg';
 import image4 from '../Assets/images/image4.jpg';
@@ -19,7 +22,6 @@ import image13 from '../Assets/images/image13.jpg';
 import image14 from '../Assets/images/image14.jpg';
 import image15 from '../Assets/images/image15.jpg';
 import data from '../../data.json'
-import userEvent from '@testing-library/user-event';
 // Import other images as needed
 const UserListing = ({ latitude, longitude }) => {
   const [centers, setCenters] = useState([]);
@@ -31,8 +33,9 @@ const UserListing = ({ latitude, longitude }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [centersPerPage] = useState(5); // Display only 5 centers per page
   const [clickedIndex, setClickedIndex] = useState(); // State to show/hide services
-  const servicedata = data.services
-  const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15]
+
+  const servicedata = data.services;
+  const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15];
   const getRandomValues = () => {
     const randomValues = [];
     while (randomValues.length < 10) {
@@ -87,21 +90,22 @@ const UserListing = ({ latitude, longitude }) => {
     );
   }, [centers, searchTerm]);
 
-
-
   const handleRadiusChange = (event) => {
     setRadius(Number(event.target.value)); // Convert value to number
   };
+
+  const addToCart = (service) => {
+    setCart([...cart, service]); // Add service to cart
+    alert(`${service} added to cart`);
+  };
+
+
+
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     setCurrentPage(1); // Reset to first page when searching
   };
-  const removeFromCart = () => {
-    setCart([]); // Remove the service from the cart
-  };
-
-
 
   // Pagination logic
   const indexOfLastCenter = currentPage * centersPerPage;
@@ -131,23 +135,10 @@ const UserListing = ({ latitude, longitude }) => {
           <button className="searchButton">Search</button>
         </div>
         {/* Cart */}
-        <div className="cart">
-          <h3>Cart</h3>
-          {cart.length > 0 ?
-            <div>
-              {cart.map((service, index) => (
-                <div key={index}>
-                  {service}{' '}
-                  <button className="removeFromCartButton" onClick={removeFromCart}>
-                    Remove
-                  </button>
-                </div>
-              ))}
-            </div>
-            : (
-              <p>No items in cart</p>
-            )}
-        </div>
+        <Link to="/cart" className="cartIconContainer">
+          <FaShoppingCart className="cartIcon" />
+          {cart.length > 0 && <span className="cartItemCount">{cart.length}</span>}
+        </Link>
         <div className="radiusSelector">
           <label htmlFor="radius">Select Radius:</label>
           <select id="radius" value={radius} onChange={handleRadiusChange}>
@@ -159,9 +150,8 @@ const UserListing = ({ latitude, longitude }) => {
             <option values={20000}>20 kilometers</option>
           </select>
         </div>
-      </div>
-
-      {currentCenters.length > 0 ? <ul className="centerList">
+      </div >
+      <ul className="centerList">
         {currentCenters.map((center, index) => (
           <li key={index} className="centerItem">
             <img src={images[Math.floor(Math.random() * 15)]} alt={center.name} className="centerImage" />
@@ -186,9 +176,6 @@ const UserListing = ({ latitude, longitude }) => {
           </button>
         ))}
       </div>
-
-      {/* Services button */}
-
     </div>
   );
 };
