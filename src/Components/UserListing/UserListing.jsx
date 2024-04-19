@@ -156,6 +156,7 @@ const UserListing = ({ latitude, longitude }) => {
             <option value={1000}>1 kilometer</option>
             <option value={5000}>5 kilometers</option>
             <option value={10000}>10 kilometers</option>
+            <option values={20000}>20 kilometers</option>
           </select>
         </div>
       </div>
