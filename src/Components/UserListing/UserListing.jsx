@@ -151,7 +151,7 @@ const UserListing = ({ latitude, longitude }) => {
           </select>
         </div>
       </div >
-      <ul className="centerList">
+      {currentCenters.length > 0 ? <ul className="centerList">
         {currentCenters.map((center, index) => (
           <li key={index} className="centerItem">
             <img src={images[index]} alt={center.name} className="centerImage" />
