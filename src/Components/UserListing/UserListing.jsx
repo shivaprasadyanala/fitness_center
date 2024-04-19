@@ -154,7 +154,7 @@ const UserListing = ({ latitude, longitude }) => {
       <ul className="centerList">
         {currentCenters.map((center, index) => (
           <li key={index} className="centerItem">
-            <img src={images[Math.floor(Math.random() * 15)]} alt={center.name} className="centerImage" />
+            <img src={images[index]} alt={center.name} className="centerImage" />
             <div className="centerInfo">
               <strong>{center.name}</strong>
               <p>Address: {center.address}</p>
