@@ -16,14 +16,27 @@
   list-style-type: none;
 }
 .serviceswrapper{
- display: flex;
- justify-content: center;
- align-items: center;
+ /* display: flex; */
+ /* justify-content: space-evenly; */
+ /* align-items:  center; */
  text-align: center;
- border-radius: 15px;
- padding:auto;
- min-height: 50vh;
+ /* border-radius: 15px; */
+ /* padding:auto; */
+ /* min-height: 50vh; */
 }
 .serviceswrapper h1{
  margin: 10px;
+}
+.cartIconContainerServices{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1  ;
+  top:3.5em;
+  right: 20em;
+  align-items: center;
+  text-decoration: none;
+  color: #f3a796;/* Change the color as needed */
+  order: 1;
+  margin-left: auto ; 
 }

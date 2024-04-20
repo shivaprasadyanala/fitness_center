@@ -1,15 +1,16 @@
-import React, { useState, removeFromCart } from 'react'
-
-const Cart = ({ services, length, removeFromCart }) => {
-  const [cart, setCart] = useState([])
-
-
+import React, { useState, useContext } from 'react'
+import { cartContext } from '../MyRoutes/MyRoutes'
+const Cart = ({ length }) => {
+  // const [cart, setCart] = useState([])
+  const { cartItems, removeFromCart } = useContext(cartContext)
+  const services = cartItems
+  console.log(services);
 
   return (
     <div className="cart">
       {/* {length} */}
       <h3>Cart</h3>
-      {length > 0 ?
+      {services.length > 0 ?
         <div>
           {services.map((service, index) => (
             <div key={index}>

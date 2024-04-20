@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Services from '../Services/Services'
 import { Link } from "react-router-dom"; // Import Link for React Router
 import { FaShoppingCart } from 'react-icons/fa'; // Import cart icon
 import './NearbyFitnessCenters.css'; // Import the updated CSS file
-// Import images for each fitness center
 import image1 from '../Assets/images/image1.jpg';
 import image2 from '../Assets/images/image2.jpg';
 import image3 from '../Assets/images/image3.jpg';
@@ -22,18 +21,18 @@ import image13 from '../Assets/images/image13.jpg';
 import image14 from '../Assets/images/image14.jpg';
 import image15 from '../Assets/images/image15.jpg';
 import data from '../../data.json'
+import { cartContext } from '../MyRoutes/MyRoutes';
 // Import other images as needed
 const UserListing = ({ latitude, longitude }) => {
   const [centers, setCenters] = useState([]);
   const [filteredCenters, setFilteredCenters] = useState([]);
   const [selectedCenter, setSelectedCenter] = useState(null);
   const [radius, setRadius] = useState(1000); // Default radius in meters
-  const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [centersPerPage] = useState(5); // Display only 5 centers per page
   const [clickedIndex, setClickedIndex] = useState(); // State to show/hide services
-
+  const { cartItems } = useContext(cartContext)
   const servicedata = data.services;
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15];
   const getRandomValues = () => {
@@ -46,16 +45,11 @@ const UserListing = ({ latitude, longitude }) => {
     }
     return randomValues.slice(0, 5);
   };
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('items'))
-    setCart(prevList => [...prevList, ...items]);
-  }, [])
-  console.log(cart);
   const [randomData, setRandomData] = useState([])
   useEffect(() => {
     setRandomData(getRandomValues(servicedata))
   }, [clickedIndex])
-  console.log(randomData);
+  // console.log(randomData);
   useEffect(() => {
     const fetchNearbyCenters = async () => {
       const apiKey = '03f6e19719msh1a6a4ca1b9ec984p10139djsndf2ad0f8bb84'; // Replace with your RapidAPI Key
@@ -92,11 +86,6 @@ const UserListing = ({ latitude, longitude }) => {
 
   const handleRadiusChange = (event) => {
     setRadius(Number(event.target.value)); // Convert value to number
-  };
-
-  const addToCart = (service) => {
-    setCart([...cart, service]); // Add service to cart
-    alert(`${service} added to cart`);
   };
 
 
@@ -137,7 +126,7 @@ const UserListing = ({ latitude, longitude }) => {
         {/* Cart */}
         <Link to="/cart" className="cartIconContainer">
           <FaShoppingCart className="cartIcon" />
-          {cart.length > 0 && <span className="cartItemCount">{cart.length}</span>}
+          {cartItems.length > 0 && <span className="cartItemCount">{cartItems.length}</span>}
         </Link>
         <div className="radiusSelector">
           <label htmlFor="radius">Select Radius:</label>
