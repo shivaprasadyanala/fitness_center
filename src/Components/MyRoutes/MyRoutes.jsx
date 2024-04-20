@@ -10,21 +10,39 @@ import Services from '../Services/Services';
 export const cartContext = createContext()
 const MyRoutes = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState({ centername: "", services: [] })
   const removeFromCart = (index) => {
-    const newCartItems = [...cartItems];
+    const newCartItems = [...(cartItems.services)];
     newCartItems.splice(index, 1);
-    setCartItems(newCartItems);
+    // setCartItems.services(newCartItems);
+    setCartItems(prevState => ({
+      ...prevState,
+      services: newCartItems
+    }));
   };
 
-  const addToCart = (item) => {
-    if (!cartItems.includes(item)) {
-      setCartItems([...cartItems, item]);
-      localStorage.setItem('items', JSON.stringify(cartItems))
-      // Replace cart with the new service
-      alert(`${item} added to cart`);
+  console.log(cartItems.centername);
+
+  const addToCart = (item, centername) => {
+    if (centername === cartItems.centername || cartItems.centername === "") {
+
+      if (!cartItems.services.includes(item)) {
+        if (cartItems.centername === "") {
+          cartItems.centername = centername
+        }
+        if ((centername === cartItems.centername)) {
+          setCartItems(prevState => ({
+            ...prevState,
+            services: [...prevState.services, item]
+          }));
+          alert(`${item} added to cart`);
+        }
+      } else {
+        alert(`${!cartItems.services.includes(item)} already ${centername === "" || centername === cartItems.centername} in the cart`)
+      }
+
     } else {
-      alert(`${item} already in the cart`)
+      setCartItems({ centername: centername, services: [item] });
     }
 
   };

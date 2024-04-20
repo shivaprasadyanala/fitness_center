@@ -126,7 +126,7 @@ const UserListing = ({ latitude, longitude }) => {
         {/* Cart */}
         <Link to="/cart" className="cartIconContainer">
           <FaShoppingCart className="cartIcon" />
-          {cartItems.length > 0 && <span className="cartItemCount">{cartItems.length}</span>}
+          {cartItems.services.length > 0 && <span className="cartItemCount">{cartItems.services.length}</span>}
         </Link>
         <div className="radiusSelector">
           <label htmlFor="radius">Select Radius:</label>

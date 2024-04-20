@@ -3,7 +3,7 @@ import { cartContext } from '../MyRoutes/MyRoutes'
 const Cart = ({ length }) => {
   // const [cart, setCart] = useState([])
   const { cartItems, removeFromCart } = useContext(cartContext)
-  const services = cartItems
+  const services = cartItems.services
   console.log(services);
 
   return (
@@ -12,8 +12,10 @@ const Cart = ({ length }) => {
       <h3>Cart</h3>
       {services.length > 0 ?
         <div>
+          {cartItems.centername}
           {services.map((service, index) => (
             <div key={index}>
+
               {service}{' '}
               <button className="removeFromCartButton" onClick={() => removeFromCart(index)}>
                 Remove

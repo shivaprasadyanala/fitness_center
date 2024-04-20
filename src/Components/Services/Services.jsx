@@ -28,12 +28,12 @@ const Services = ({ randomData, index }) => {
 
  const ser_data = data.services
  const location = useLocation();
- console.log(randomData);
+ console.log(cartItems.services.length);
  return (
   <div className='serviceswrapper'>
    <Link to="/cart" className="cartIconContainerServices">
     <FaShoppingCart className="cartIcon" />
-    {cartItems.length > 0 && <span className="cartItemCount">{cartItems.length}</span>}
+    {cartItems.services.length > 0 && <span className="cartItemCount">{cartItems.services.length}</span>}
    </Link>
    <div >
     <h1 className='serviceheader'>{location.state.serviceName}</h1>
@@ -43,7 +43,7 @@ const Services = ({ randomData, index }) => {
       <li key={index} className='serviceitem'>
        <img src={service_images[service.name]} alt="" width={250} height={200} />
        <p>{service.name}</p>
-       <button className="addToCartButton" onClick={() => addToCart(service.name)}>
+       <button className="addToCartButton" onClick={() => addToCart(service.name, location.state.serviceName)}>
         Add to Cart
        </button>
       </li>
