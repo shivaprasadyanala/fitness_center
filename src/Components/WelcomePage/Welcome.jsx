@@ -12,7 +12,7 @@ const Welcome = () => {
     <div className="welcome-text">
      <h1>Welcome to Fitness Hub</h1>
      <p>Your ultimate partner to find your dream fitness center</p>
-     <button className="cta-button">Get Started</button>
+     <a href="/signup"><button className="cta-button" >Get Started</button></a>
     </div>
    </div>
   </div>

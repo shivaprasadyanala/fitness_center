@@ -1,33 +1,65 @@
-import React, { useState, useContext } from 'react'
-import { cartContext } from '../MyRoutes/MyRoutes'
+import React, { useContext } from 'react';
+import { cartContext } from '../MyRoutes/MyRoutes';
+
 const Cart = ({ length }) => {
-  // const [cart, setCart] = useState([])
-  const { cartItems, removeFromCart } = useContext(cartContext)
-  const services = cartItems.services
-  console.log(services);
+  const { cartItems, removeFromCart } = useContext(cartContext);
+  const services = cartItems.services;
+
+  const cartContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    fontFamily: 'Roboto,sans-serif',
+  };
+
+  const cartStyle = {
+    width: '50%',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    padding: '10px',
+    backgroundColor: '#f9f9f9',
+  };
+
+  const itemStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '5px',
+  };
+
+  const buttonStyle = {
+    backgroundColor: 'red',
+    color: '#fff',
+    border: 'none',
+    padding: '5px 10px',
+    borderRadius: '3px',
+    cursor: 'pointer',
+  };
 
   return (
-    <div className="cart">
-      {/* {length} */}
-      <h3>Cart</h3>
-      {services.length > 0 ?
-        <div>
-          {cartItems.centername}
-          {services.map((service, index) => (
-            <div key={index}>
-
-              {service}{' '}
-              <button className="removeFromCartButton" onClick={() => removeFromCart(index)}>
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
-        : (
+    <div className="cart-container" style={cartContainerStyle}>
+      <div className="cart" style={cartStyle}>
+        <h3><b>Cart</b></h3>
+        {services.length > 0 ? (
+          <div>
+            <b>{cartItems.centername}</b>
+            {services.map((service, index) => (
+              <div key={index} style={itemStyle}>
+                {service}
+                <button className="removeFromCartButton" style={buttonStyle} onClick={() => removeFromCart(index)}>
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
           <p>No items in cart</p>
         )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
