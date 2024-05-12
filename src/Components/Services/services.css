@@ -40,3 +40,20 @@
   order: 1;
   margin-left: auto ; 
 }
+.backButton{
+  border-radius: 4px;
+  border:none;
+  background-color: #4CAF50;
+  font-size: 70px;
+  color:#fff;
+  margin-right: 70%;
+  width: 100px;
+  height: 70px;
+  margin-top: 20px;
+}
+.backButton:hover{
+  cursor: pointer;
+  background-color: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}

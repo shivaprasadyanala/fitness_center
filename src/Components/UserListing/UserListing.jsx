@@ -35,12 +35,16 @@ const UserListing = ({ latitude, longitude }) => {
   const { cartItems } = useContext(cartContext)
   const servicedata = data.services;
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15];
+  const prices = [12500, 1230, 5000, 4000, 3200, 1200, 4490, 8700, 1300, 5000]
   const getRandomValues = () => {
     const randomValues = [];
     while (randomValues.length < 10) {
       const randomIndex = Math.floor(Math.random() * servicedata.length);
+      const randomPriceIndex = Math.floor(Math.random() * prices.length);
       if (!randomValues.includes(servicedata[randomIndex])) {
-        randomValues.push(servicedata[randomIndex]);
+        const service = servicedata[randomIndex]
+        service.price = prices[randomPriceIndex]
+        randomValues.push(service);
       }
     }
     return randomValues.slice(0, 5);

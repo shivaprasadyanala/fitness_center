@@ -17,8 +17,11 @@ import pyscotherpy from '../Assets/images/psycotherpy.jpeg'
 import spinning from '../Assets/images/spinning.jpeg'
 import kickboxing from '../Assets/images/kickboxing.jpeg'
 import { cartContext } from '../MyRoutes/MyRoutes'
-const Services = ({ randomData, index }) => {
+import { useNavigate } from "react-router-dom";
+import { IoMdArrowBack } from "react-icons/io";
 
+const Services = ({ randomData, index }) => {
+ let navigate = useNavigate();
  const service_images = {
   "Cardio": cardio, "Weight loss": weight_loss, "Yoga": yoga, "Zumba": zumba, "Aerobics": Aerobics, "Personal Training": Personal_training, "Cycling": cycling, "CrossFit": crossfit, "Physiotherapy": pyscotherpy, "Spinning": spinning, "Kickboxing": kickboxing
  }
@@ -37,13 +40,14 @@ const Services = ({ randomData, index }) => {
    </Link>
    <div >
     <h1 className='serviceheader'>{location.state.serviceName}</h1>
+    <button className='backButton' onClick={() => navigate(-1)}><IoMdArrowBack /></button>
     <ul className='serviceslist'>
      {location.state.randomData && location.state.randomData.map((service, index) => (
 
       <li key={index} className='serviceitem'>
        <img src={service_images[service.name]} alt="" width={250} height={200} />
        <p>{service.name}</p>
-       <button className="addToCartButton" onClick={() => addToCart(service.name, location.state.serviceName)}>
+       <button className="addToCartButton" onClick={() => addToCart(service.name, service.price, location.state.serviceName, true)}>
         Add to Cart
        </button>
       </li>

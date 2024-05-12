@@ -1,16 +1,16 @@
 {
   "services": [
-    { "name": "Aerobics", "price": 3432 },
-    { "name": "Yoga", "price": 3432 },
-    { "name": "Cardio", "price": 3432 },
-    { "name": "Weight loss", "price": 3432 },
-    { "name": "Zumba", "price": 3432 },
-    { "name": "Personal Training", "price": 3432 },
-    { "name": "Cycling", "price": 3432 },
-    { "name": "Spinning", "price": 3432 },
-    { "name": "Physiotherapy", "price": 3432 },
-    { "name": "Kickboxing", "price": 3432 },
-    { "name": "CrossFit", "price": 3432 }
+    { "name": "Aerobics", "price": 14000 },
+    { "name": "Yoga", "price": 10000 },
+    { "name": "Cardio", "price": 1003 },
+    { "name": "Weight loss", "price": 12000 },
+    { "name": "Zumba", "price": 8000 },
+    { "name": "Personal Training", "price": 5000 },
+    { "name": "Cycling", "price": 3000 },
+    { "name": "Spinning", "price": 1000 },
+    { "name": "Physiotherapy", "price": 17000 },
+    { "name": "Kickboxing", "price": 20000 },
+    { "name": "CrossFit", "price": 18000 }
   ],
   "centers": [
     { "name": "xyz", "Address": "hyd" },

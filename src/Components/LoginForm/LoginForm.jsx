@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import './LoginForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
+import { cartContext } from '../MyRoutes/MyRoutes'
+
 
 const LoginForm = ({ onLogin }) => {
     const navigate = useNavigate()
@@ -9,22 +11,49 @@ const LoginForm = ({ onLogin }) => {
     // const [password, setPassword] = useState();
     const [isError, setIsError] = useState(false)
     const [isShaking, setIsShaking] = useState(false);
+    const [userId, setUserId] = useState()
+    const { cartItems, addToCart, removeFromCart } = useContext(cartContext)
+
+
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
     // const username = useRef(null);
+    const handleUserId = async (userId) => {
+        await fetch(`http://localhost:8080/getservices/${userId}`, {
+            method: "get",
+            headers: headers,
+
+            //make sure to serialize your JSON body
+        })
+            .then((response) =>
+                response.text()
+            )
+            .then(data => {
+                // console.log(JSON.parse(data))
+                const items = JSON.parse(data)
+                for (const cartItem of items) {
+                    addToCart(cartItem, "1200", "testing", false)
+                }
+            }
+            )
+        console.log(`cart itmes: ${cartItems}`);
+
+    }
     const headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
+        'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS,GET'
     }
-    const handleLogin = (e) => {
+
+    const handleLogin = async (e) => {
 
         e.preventDefault();
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         console.log(email, password);
-        fetch("http://localhost:8080/loginuser", {
+
+        await fetch("http://localhost:8080/loginuser", {
             method: "post",
             headers: headers,
 
@@ -34,19 +63,21 @@ const LoginForm = ({ onLogin }) => {
                 password: password
             })
         })
-
             .then((response) => {
                 return response.json();
             })
             .then(data => {
                 console.log("Login successful:", data);
-                if (data === false) {
+                if (data.isLoggedIn === false) {
                     onLogin(false)
                     setIsError(true)
                     setTimeout(() => {
                         setIsError(false);
                     }, 1000);
                 } else {
+                    // setUserId(data.userid)
+                    handleUserId(data.userid)
+                    // console.log(data.userid)
                     onLogin(true)
                     navigate('/getlocation')
                 }
@@ -58,7 +89,7 @@ const LoginForm = ({ onLogin }) => {
 
             <div className='wrapper'>
                 {isError && <div className='loginerror'>Invalid login Credentials</div>}
-                <form action="" onSubmit={handleLogin}>
+                <form action="" onSubmit={handleLogin} >
                     <h1>Login</h1>
                     <div className="input-box">
                         <input ref={emailRef} type="text" placeholder='Username' required />
@@ -87,6 +118,6 @@ const LoginForm = ({ onLogin }) => {
             </div>
         </div>
     )
-}
 
+}
 export default LoginForm

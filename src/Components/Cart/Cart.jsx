@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { cartContext } from '../MyRoutes/MyRoutes';
+import { useNavigate } from 'react-router-dom';
+import { IoMdArrowBack } from "react-icons/io";
 
 const Cart = ({ length }) => {
   const { cartItems, removeFromCart } = useContext(cartContext);
   const services = cartItems.services;
-
+  const navigate = useNavigate();
   const cartContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -37,9 +39,11 @@ const Cart = ({ length }) => {
     borderRadius: '3px',
     cursor: 'pointer',
   };
-
+  console.log(`cart items${cartItems}`);
   return (
     <div className="cart-container" style={cartContainerStyle}>
+      <button className='backButton' onClick={() => navigate(-1)}><IoMdArrowBack /></button>
+
       <div className="cart" style={cartStyle}>
         <h3><b>Cart</b></h3>
         {services.length > 0 ? (
@@ -47,7 +51,9 @@ const Cart = ({ length }) => {
             <b>{cartItems.centername}</b>
             {services.map((service, index) => (
               <div key={index} style={itemStyle}>
-                {service}
+                <p>{service.item}</p>
+                <p>{service.price}</p>
+
                 <button className="removeFromCartButton" style={buttonStyle} onClick={() => removeFromCart(index)}>
                   Remove
                 </button>

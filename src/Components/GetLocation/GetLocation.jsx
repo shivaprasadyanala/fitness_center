@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import UserListing from '../UserListing/UserListing';
+
 const GetLocation = () => {
  const [latitude, setLatitude] = useState(null);
  const [longitude, setLongitude] = useState(null);
+ const [cartItems, setCartItems] = useState([])
  const [error, setError] = useState(null);
  console.log(latitude, longitude);
+ // const headers = {
+ //  'Content-Type': 'application/json',
+ //  'Access-Control-Allow-Origin': '*',
+ //  'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS,GET'
+ // }
+
  useEffect(() => {
   if (navigator.geolocation) {
    navigator.geolocation.getCurrentPosition(
@@ -24,7 +32,7 @@ const GetLocation = () => {
  return (
   <div>
    {latitude && longitude ? (
-    <UserListing latitude={latitude} longitude={longitude} />
+    <div> <h1>in get location</h1></div>
    ) : error ? (
     <p>Error: {error}</p>
    ) : (
