@@ -20,6 +20,16 @@ public class User {
     private Integer contactNumber;
     private String confirmPassword;
     private String password;
-    private Number age;
+    private Integer age;
 
 }
+
+//{
+//        "name":"ramu",
+//        "email":"ramu@gmail.com",
+//        "gender":"male",
+//        "contactNumber":232344432,
+//        "password":"test",
+//        "confirmPassword":"test",
+//        "age":15
+//        }

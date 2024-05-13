@@ -19,7 +19,7 @@ public class UserController {
     }
     @CrossOrigin(origins = "*")
     @PostMapping(path= "/loginuser" ,consumes = "application/json", produces = "application/json")
-    public boolean loginUser(@RequestBody LoginUserDto data) {
+    public UserResponseDTO loginUser(@RequestBody LoginUserDto data) {
         return userService.userLogin(data);
 
     }
